@@ -1,0 +1,114 @@
+    <html>
+    <head>
+    </head>
+    <body>
+    <p>Press 3 at a time: Q, W, E, R, C, N, U, I, O, P</p>
+    <p id="main"></p>
+    <p id="out"></p>
+    <canvas id="Canvas" width="320" height="600" style="border:1px solid #d3d3d3;">
+    <img id="0" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYNATcrb+8aZAAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAARSURBVAjXY/zPgB0wMdBeAgB+cgEJBLXYPQAAAABJRU5ErkJggg==">
+    <img id="1" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYNATgJPRdHTwAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAjSURBVAjXY/w/kwEd/GdgYGBgYsAEjLgkGBgYGHFJMOCWAAAxHwKjgdXwxgAAAABJRU5ErkJggg==">
+    <img id="2" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYNATgocX5XEQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAVSURBVAjXYzzznwErYGJgoLYEhk0A8TIC1BQMHVwAAAAASUVORK5CYII=">
+    <img id="3" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYNATkGtLNrnwAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAATSURBVAjXYzT+z4AVMDEw0FwCAJYnATzli2YJAAAAAElFTkSuQmCC">
+    <img id="4" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYNATkgZr7uYgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAVSURBVAjXY2T4n8aADTAx4ABUlAAArg8Bb2ciVroAAAAASUVORK5CYII=">
+    <img id="5" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYNAToBAfqt/wAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAVSURBVAjXY2T4/58BG2BiwAGoKAEA9vkCCOpR0SoAAAAASUVORK5CYII=">
+    <img id="6" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYNATob/JhUhQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAhSURBVAjXY2RI/8/wnwEdMDIwYRFlYGD4z8DEgAOQLgEA1D8EbhiBuFcAAAAASUVORK5CYII=">
+    <img id="7" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYNAToyvirM6QAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAABESURBVAjXXYmxDYAwEMR8l1cWYIrsPxsNIjmKiALc2dY40k/ahQIBEbGK8o0n7AoEgRbW9h/BaUSg7xCenVXE5H0RMQ9+cRdFpDUB6QAAAABJRU5ErkJggg==">
+    <img id="8" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYNATsMZlDgAwAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAwSURBVAjXbcuxDcAwDAPBo7z/XtnJgOUiVaBc+QTz6EV8NJVREerdpzrxqzY9Ts0F/9MIzXzen9cAAAAASUVORK5CYII=">
+    <img id="9" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYNATs4R+QUtgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAVSURBVAjXY/zPMJMBG2BiwAGoKAEAx1wBolc+3tkAAAAASUVORK5CYII=">
+    <img id="11" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYNAggcjcorDgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAABJSURBVAjXPcjBDYAwEAPB9YWIHimMQvmAIDnzCMHaj0f7xnFxN9LYIIpYK8v50PpUwCT0JHqSxnyN2QTj/wYSISJECIRAU2vhBdJTH9I1lpi5AAAAAElFTkSuQmCC">
+    <img id="13" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYNAggmS8byvAAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAATSURBVAjXY5SsY8AKmBgYaC4BAEuUAKGSmZK1AAAAAElFTkSuQmCC">
+    <img id="15" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYNAggwvxJH7QAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAVSURBVAjXY2To6GDABpgYcAAqSgAAhRYBGlQp47oAAAAASUVORK5CYII=">
+    <img id="17" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYNAgkF8LqyjwAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAmSURBVAjXY5RiaGRAB0yMDGxMDFjAfwaGv9gl/uOQYGBg+I9TAgCiUgejCLxQ9wAAAABJRU5ErkJggg==">
+    <img id="19" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYNAgkSc2k3SAAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAkSURBVAjXY2xm8PvH8J8BAzBhEYNIMOCSYMQlwcLAzMiARRYAucwD4bE7D2AAAAAASUVORK5CYII=">
+    <img id="white" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYNAxwXNXRP5AAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAfSURBVAjXY/z//z8DNsDEgAPgkPj/nyQd//8z/P8PAOUZCQHhxBAbAAAAAElFTkSuQmCC">
+</body>
+    <script>
+    
+//chordal = ["a", "s", "d", "f", " ", "n", "u", "i", "o", "p"];
+//keyboard = { "a": false, "b": false, "c": false, "d": false, "e": false, "f": false, "g": false, "h": false, "i": false, "j": false, "k": false, "l": false, "m": false, "n": false, "o": false, "p": false, "q": false, "r": false, "s": false, "t": false, "u": false, "v": false, "w": false, "x": false, "y": false, "z": false};
+keyboard = {"q": false, "w": false, "e": false, "r": false, "c": false, "n": false, "u": false, "i": false, "o": false, "p": false};
+var c=document.getElementById("Canvas");
+var ctx = c.getContext("2d");
+var i0 = document.getElementById("0");
+var i1 = document.getElementById("1");
+var i2 = document.getElementById("2");
+var i3 = document.getElementById("3");
+var i4 = document.getElementById("4");
+var i5 = document.getElementById("5");
+var i6 = document.getElementById("6");
+var i7 = document.getElementById("7");
+var i8 = document.getElementById("8");
+var i9 = document.getElementById("9");
+var i11 = document.getElementById("11");
+var i13 = document.getElementById("13");
+var i15 = document.getElementById("15");
+var i17 = document.getElementById("17");
+var i19 = document.getElementById("19");
+var iwhite = document.getElementById("white");
+chordal = {"q": i0, "w": i1, "e": i2, "r": i13, "c": i4, "n": i5, "u": i6, "i": i7, "o": i8, "p": i9};
+x_pos=0;
+y_pos=0;
+function draw(letters){
+    ctx.drawImage(chordal[letters.shift()], x_pos, y_pos);
+    ctx.drawImage(chordal[letters.shift()], x_pos, y_pos+5);
+    ctx.drawImage(chordal[letters.shift()], x_pos, y_pos+10);
+    if (x_pos > 290){
+	y_pos = y_pos + 20;
+	x_pos = 0;
+    } else {
+	x_pos = x_pos + 8;
+    }
+}
+function backspace(){
+    if ((x_pos == 0) && (y_pos > 0)){
+	y_pos = y_pos - 20;
+	x_pos = 37*8;
+    } else {
+	x_pos = x_pos -8;
+    }
+    ctx.drawImage(iwhite, x_pos, y_pos);
+    ctx.drawImage(iwhite, x_pos, y_pos+5);
+    ctx.drawImage(iwhite, x_pos, y_pos+10);
+}
+function clearscreen(){
+    ctx.clearRect(0, 0, c.width, c.height);
+    ctx.beginPath();
+    ctx.rect(0, 0, c.width, c.height);
+    ctx.fillStyle = '#444444';
+    ctx.fill();
+}
+function reset(){
+    k = Object.keys(keyboard);
+    len = k.length;
+    pressed = [];
+    for (i = 0; i<len; i++){
+	if (keyboard[k[i]] == true) {
+	    pressed.push(k[i]);
+	}
+	keyboard[k[i]] = false;
+    }
+    if (pressed.length > 2){
+	// document.getElementById("main").innerHTML = pressed.shift().concat(pressed.shift()).concat(pressed.shift());
+	// string = pressed.shift().concat(pressed.shift()).concat(pressed.shift()));
+	draw(pressed);
+	// document.getElementById("out").innerHTML = document.getElementById("out").innerHTML.concat(string);
+    }
+};
+
+document.onkeypress = function(e) {
+    e = e || window.event;
+    var charCode = e.keyCode || e.which;
+    var charStr = String.fromCharCode(charCode);
+    keyboard[charStr] = true;
+    if (charStr == "\b") {
+	backspace();
+    }
+    // document.getElementById("main").innerHTML = JSON.stringify(keyboard);
+};
+
+window.setInterval(reset, 500);
+
+</script>
+    </html>
+    
