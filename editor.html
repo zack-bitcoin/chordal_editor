@@ -22,11 +22,9 @@
     <img id="17" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYNAgkF8LqyjwAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAmSURBVAjXY5RiaGRAB0yMDGxMDFjAfwaGv9gl/uOQYGBg+I9TAgCiUgejCLxQ9wAAAABJRU5ErkJggg==">
     <img id="19" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYNAgkSc2k3SAAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAkSURBVAjXY2xm8PvH8J8BAzBhEYNIMOCSYMQlwcLAzMiARRYAucwD4bE7D2AAAAAASUVORK5CYII=">
     <img id="white" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYNAxwXNXRP5AAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAfSURBVAjXY/z//z8DNsDEgAPgkPj/nyQd//8z/P8PAOUZCQHhxBAbAAAAAElFTkSuQmCC">
+    <img id="black" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAIAAAD38zoCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYNDwA34XfLFQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAMSURBVAjXY2AYQAAAAH0AAcwcx2wAAAAASUVORK5CYII=">
 </body>
     <script>
-    
-//chordal = ["a", "s", "d", "f", " ", "n", "u", "i", "o", "p"];
-//keyboard = { "a": false, "b": false, "c": false, "d": false, "e": false, "f": false, "g": false, "h": false, "i": false, "j": false, "k": false, "l": false, "m": false, "n": false, "o": false, "p": false, "q": false, "r": false, "s": false, "t": false, "u": false, "v": false, "w": false, "x": false, "y": false, "z": false};
 keyboard = {"q": false, "w": false, "e": false, "r": false, "c": false, "n": false, "u": false, "i": false, "o": false, "p": false};
 var c=document.getElementById("Canvas");
 var ctx = c.getContext("2d");
@@ -46,30 +44,69 @@ var i15 = document.getElementById("15");
 var i17 = document.getElementById("17");
 var i19 = document.getElementById("19");
 var iwhite = document.getElementById("white");
-chordal = {"q": i0, "w": i1, "e": i2, "r": i13, "c": i4, "n": i5, "u": i6, "i": i7, "o": i8, "p": i9};
+var iblack = document.getElementById("black");
+chordal = {"q": i0, "w": i1, "e": iwhite, "r": i13, "c": i4, "n": i5, "u": i6, "i": iblack, "o": i8, "p": i0};
+to_digit = {"q": 0, "w": 1, "e": 2, "r": 3, "c": 4, "n": 5, "u": 6, "i": 7, "o": 8, "p": 9};
 x_pos=0;
 y_pos=0;
-function draw(letters){
-    ctx.drawImage(chordal[letters.shift()], x_pos, y_pos);
-    ctx.drawImage(chordal[letters.shift()], x_pos, y_pos+5);
-    ctx.drawImage(chordal[letters.shift()], x_pos, y_pos+10);
+data = [];
+function to_int(a, b, c){
+    return to_digit[a]*100+to_digit[b]*10+to_digit[c];
+}
+function draw_helper(a, b, c){
+    // document.getElementById("main").innerHTML = to_int(a, b, c);
+    data.push(to_int(a, b, c));
     if (x_pos > 290){
 	y_pos = y_pos + 20;
-	x_pos = 0;
+	x_pos = 8;
     } else {
 	x_pos = x_pos + 8;
     }
+    ctx.drawImage(chordal[a], x_pos-8, y_pos);
+    ctx.drawImage(chordal[b], x_pos-8, y_pos+5);
+    ctx.drawImage(chordal[c], x_pos-8, y_pos+10);
 }
-function backspace(){
-    if ((x_pos == 0) && (y_pos > 0)){
-	y_pos = y_pos - 20;
-	x_pos = 37*8;
-    } else {
-	x_pos = x_pos -8;
+function draw(letters){
+    a = letters.shift();
+    b = letters.shift();
+    c = letters.shift();
+    i = data.pop();
+    data.push(i);
+    draw_helper(a, b, c);
+    if (x_pos <= 290){
+	if ((a == "r") && ((b == "u") && (c == "i"))) {
+	    draw(["r", "u", "i"]);
+	}
+	if (((i == 245)|| (x_pos == 8)) && ((a == "e")) && ((b == "c") && (c == "n"))) {
+	    draw_helper("e", "c", "n");
+	    draw_helper("e", "c", "n");
+	}
     }
+}
+function backspace_helper(){
     ctx.drawImage(iwhite, x_pos, y_pos);
     ctx.drawImage(iwhite, x_pos, y_pos+5);
     ctx.drawImage(iwhite, x_pos, y_pos+10);
+}
+function backspace(){
+    t = false;
+    if ((x_pos == 0) && (y_pos > 0)){
+	y_pos = y_pos - 20;
+	x_pos = 37*8;
+	t = true;
+    } else if (x_pos > 0) {
+	x_pos = x_pos -8;
+	t = true;
+    }
+    if (t){
+	j = data.pop();
+	i = data.pop();
+	data.push(i);
+	backspace_helper();
+	if ((j == i) && ((i == 245) || (i == 367))) {
+	    backspace();
+	}
+    }
 }
 function clearscreen(){
     ctx.clearRect(0, 0, c.width, c.height);
@@ -95,6 +132,7 @@ function reset(){
 	// document.getElementById("out").innerHTML = document.getElementById("out").innerHTML.concat(string);
     }
 };
+window.setInterval(reset, 500);
 
 document.onkeypress = function(e) {
     e = e || window.event;
@@ -104,11 +142,8 @@ document.onkeypress = function(e) {
     if (charStr == "\b") {
 	backspace();
     }
-    // document.getElementById("main").innerHTML = JSON.stringify(keyboard);
+//document.getElementById("main").innerHTML = charStr; 
 };
-
-window.setInterval(reset, 500);
-
 </script>
     </html>
     
